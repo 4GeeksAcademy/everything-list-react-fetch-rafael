@@ -7,8 +7,8 @@ const TodoList = () => {
   const [tasks, setTasks] = useState([]);
 
   // NECESITO FUNCION PARA ENVIAR FORMULARIO
-  const sendform = (element) => {
-    element.preventDefault();  
+  const sendform = (e) => {
+    e.preventDefault();
 
     // CREO UNA LISTA DE TAREAS, CON LA ACTUAL AÑADIDA ...
     setTasks([...tasks, task]);
@@ -32,22 +32,22 @@ const TodoList = () => {
   // SI NO HAY TAREAS MUESTRO MENSAJE! PARA QUE EL CLIENTE AGREGUE
   if (tasks.length === 0) {
     content = <p className="text-center mt-3">No hay tareas aún, agrega una...</p>;
-  } 
+  }
   // SI HAY TAREAS, NECESITO MOSTRAR LA LISTA! HAGO UN MAPEO
   else {
     content = (
       <ul className="list-group mt-3">
         {tasks.map((tareas, index) => (
           <li
-            key={index} 
-            className ="list-group-item d-flex justify-content-between align-items-center"
+            key={index}
+            className="list-group-item d-flex justify-content-between align-items-center all-item"
           >
             {/* AQUI MUESTRO LA TAREA */}
             {tareas}
 
             {/* CREO BOTON PARA ELIMINAR TAREA Y DENTRO DE LLAVES O SE MOSTRARA EN PANTALLA*/}
             <button
-              className="btn btn-danger btn-sm"
+              className="btn btn-danger btn-sm delete-btn"
               onClick={() => deleteTask(index)}
             >
               X
@@ -70,7 +70,7 @@ const TodoList = () => {
           className="form-control"
           placeholder="Escribe una tarea..."
           value={task} // SIEMPRE MOSTRAMOS EL ESTADO YA CTUALIZAMOS CUANDO SE ESCRIBE
-          onChange={(e) => setTask(e.target.value)} 
+          onChange={(e) => setTask(e.target.value)}
         />
         <button className="btn btn-primary ms-2">Agregar Task</button>
       </form>
@@ -81,6 +81,5 @@ const TodoList = () => {
   );
 };
 
-export default TodoList;
-
+  export default TodoList;
 

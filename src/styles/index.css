@@ -10,4 +10,11 @@
 
 */
 
+.all-item .delete-btn {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
 
+.all-item:hover .delete-btn {
+    opacity: 1;
+}
